@@ -1,0 +1,16 @@
+{
+  "name": "PTT Auto Login",
+  "description": "Automating the login process for PTT.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["activeTab", "storage"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://term.ptt.cc/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
