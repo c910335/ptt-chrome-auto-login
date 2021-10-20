@@ -15,4 +15,4 @@ setTimeout(() => {
       t.dispatchEvent(new KeyboardEvent('keydown', {key: 'Enter', keyCode: 13, which: 13, bubbles: true}));
     }
   })
-}, 2000);
+}, 500);
