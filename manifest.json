@@ -5,7 +5,7 @@
   "manifest_version": 3,
   "permissions": ["activeTab", "storage"],
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "src/popup.html",
     "default_icon": {
       "16": "/icons/P16.png",
       "32": "/icons/P32.png",
@@ -16,7 +16,7 @@
   "content_scripts": [
     {
       "matches": ["https://term.ptt.cc/*"],
-      "js": ["content.js"]
+      "js": ["src/content.js"]
     }
   ]
 }
