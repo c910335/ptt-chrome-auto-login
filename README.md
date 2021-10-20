@@ -8,9 +8,8 @@ PTT Chrome Auto Login stores your passwords via the [Credential Management API](
 
 1. Clone this repository.
 
-```
+```sh
 $ git clone https://github.com/c910335/ptt-chrome-auto-login.git
-$ cd ptt-chrome-auto-login
 ```
 
 2. `Load unpacked` from [chrome://extensions](chrome://extensions)
