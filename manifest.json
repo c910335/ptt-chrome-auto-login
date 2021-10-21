@@ -3,7 +3,7 @@
   "description": "Automating the login process for PTT.",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["activeTab", "storage"],
+  "permissions": ["storage"],
   "action": {
     "default_popup": "src/popup.html",
     "default_icon": {
