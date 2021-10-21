@@ -1,6 +1,11 @@
-chrome.runtime.onMessage.addListener((cred, _, sendResponse) => {
-  navigator.credentials.store(new PasswordCredential(cred));
-  sendResponse('已更新');
+chrome.runtime.onMessage.addListener((msg, _, sendResponse) => {
+  if (msg) {
+    if (msg.id && msg.password) {
+      navigator.credentials.store(new PasswordCredential(cred));
+      sendResponse('已更新');
+    } else if (msg == 'ping')
+      sendResponse('pong');
+  }
 });
 
 setTimeout(() => {

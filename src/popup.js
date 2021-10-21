@@ -1,7 +1,11 @@
 chrome.tabs.query({active: true, currentWindow: true}, tabs => {
   window.currentTab = tabs[0];
-  if (!currentTab.url.startsWith("https://term.ptt.cc"))
-    window.open("https://term.ptt.cc/");
+  chrome.tabs.sendMessage(currentTab.id, 'ping', res => {
+    if (!res) {
+      chrome.runtime.lastError;
+      window.open("https://term.ptt.cc/");
+    }
+  });
 })
 
 document.addEventListener("DOMContentLoaded", () => {
