@@ -1,7 +1,7 @@
 chrome.runtime.onMessage.addListener((msg, _, sendResponse) => {
   if (msg) {
     if (msg.id && msg.password) {
-      navigator.credentials.store(new PasswordCredential(cred));
+      navigator.credentials.store(new PasswordCredential(msg));
       sendResponse('已更新');
     } else if (msg == 'ping')
       sendResponse('pong');
