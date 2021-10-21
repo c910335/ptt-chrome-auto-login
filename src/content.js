@@ -5,7 +5,7 @@ chrome.runtime.onMessage.addListener((cred, _, sendResponse) => {
 
 setTimeout(() => {
   navigator.credentials.get({password: true}).then(cred => {
-    if (cred.id && cred.password) {
+    if (cred && cred.id && cred.password) {
       let t = document.getElementById('t');
       t.value = cred.id;
       t.dispatchEvent(new Event('input'));
