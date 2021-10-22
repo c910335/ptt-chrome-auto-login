@@ -6,6 +6,8 @@ PTT Chrome Auto Login stores your passwords via the [Credential Management API](
 
 ## Installation
 
+Get [PTT Auto Login from Chrome Web Store](https://chrome.google.com/webstore/detail/ptt-auto-login/ghaajmaenailmmipaomfgoaemccfadfj), or if you want to install from source manually:
+
 1. Clone this repository.
 
 ```sh
