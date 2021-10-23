@@ -21,8 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
       id: form.id.value,
       password: form.password.value
     }, res => {
+      form.password.value = '';
       message.textContent = res;
-      setTimeout(() => message.textContent = '', 2000);
+      setTimeout(() => message.textContent = '', 5000);
     });
   })
 });
