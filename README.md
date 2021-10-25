@@ -1,6 +1,6 @@
 # PTT Chrome Auto Login
 
-A Chrome extension automating the login process for PTT
+A Chrome extension automating the login process for [PTT](https://term.ptt.cc).
 
 PTT Chrome Auto Login stores your passwords via the [Credential Management API](https://developer.mozilla.org/en-US/docs/Web/API/Credential_Management_API), and you can manage all your passwords in [chrome://settings/passwords](chrome://settings/passwords).
 
