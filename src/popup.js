@@ -6,7 +6,17 @@ chrome.tabs.query({active: true, currentWindow: true}, tabs => {
       window.open("https://term.ptt.cc/");
     }
   });
-})
+});
+
+function addOption(id, value) {
+  let option = document.getElementById(id);
+
+  chrome.storage.local.get({[id]: value}, res => option.checked = res[id]);
+
+  option.addEventListener("change", event => {
+    chrome.storage.local.set({[id]: option.checked});
+  });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   let form = document.getElementById("form");
@@ -27,12 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   })
 
-  let favorite = document.getElementById("favorite");
-
-  chrome.storage.local.get({favorite: true}, res => favorite.checked = res.favorite);
-
-  favorite.addEventListener("change", event => {
-    console.log('123');
-    chrome.storage.local.set({favorite: favorite.checked});
-  });
+  addOption("favorite", true);
+  addOption("duplicate", true);
 });

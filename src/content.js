@@ -7,6 +7,10 @@ function isLoginPage() {
   return isShow('[data-row="20"] .q7.b0', '請輸入代號，或以 guest 參觀，或以 new 註冊:');
 }
 
+function isDuplicate() {
+  return isShow('[data-row="22"] .q7.b0', '您想刪除其他重複登入的連線嗎？[Y/n]');
+}
+
 function isLogged() {
   return isShow('[data-row="23"] .q15.b4', '請按任意鍵繼續');
 }
@@ -34,6 +38,12 @@ function goFavorite() {
   enter();
 }
 
+function handleDuplicate(remove) {
+  if (!remove)
+    input('n');
+  enter();
+}
+
 function waitFor(condition, timeout, callback) {
   let interval = setInterval(() => {
     if (condition()) {
@@ -52,11 +62,16 @@ function start() {
     navigator.credentials.get({password: true}).then(cred => {
       if (cred && cred.id && cred.password) {
         login(cred.id, cred.password);
-        chrome.storage.local.get({favorite: true}, res => {
-          if (res.favorite)
-            waitFor(isLogged, 3000, () => {
-              goFavorite();
-            });
+        chrome.storage.local.get({duplicate: true}, res => {
+          waitFor(isDuplicate, 5000, () => {
+            handleDuplicate(res.duplicate);
+          });
+          chrome.storage.local.get({favorite: true}, res => {
+            if (res.favorite)
+              waitFor(isLogged, 10000, () => {
+                goFavorite();
+              });
+          });
         });
       }
     })
