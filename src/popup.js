@@ -10,7 +10,7 @@ chrome.tabs.query({active: true, currentWindow: true}, tabs => {
 
 document.addEventListener("DOMContentLoaded", () => {
   let form = document.getElementById("form");
-  let message = document.getElementById("message")
+  let message = document.getElementById("message");
 
   chrome.storage.local.get({id: ''}, res => form.id.value = res.id);
 
@@ -26,4 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => message.textContent = '', 5000);
     });
   })
+
+  let favorite = document.getElementById("favorite");
+
+  chrome.storage.local.get({favorite: true}, res => favorite.checked = res.favorite);
+
+  favorite.addEventListener("change", event => {
+    console.log('123');
+    chrome.storage.local.set({favorite: favorite.checked});
+  });
 });
