@@ -1,18 +1,18 @@
 function isShow(selector, content) {
-  let t = document.querySelector(selector);
-  return t && t.textContent.includes(content);
+  let elements = Array.from(document.querySelectorAll(selector));
+  return elements && elements.some(e => e.textContent.includes(content));
 }
 
 function isLoginPage() {
-  return isShow('[data-row="20"] .q7.b0', '請輸入代號，或以 guest 參觀，或以 new 註冊:');
+  return isShow('.q7.b0', '請輸入代號，或以 guest 參觀，或以 new 註冊:');
 }
 
 function isDuplicate() {
-  return isShow('[data-row="22"] .q7.b0', '您想刪除其他重複登入的連線嗎？[Y/n]');
+  return isShow('.q7.b0', '您想刪除其他重複登入的連線嗎？[Y/n]');
 }
 
 function isLogged() {
-  return isShow('[data-row="23"] .q15.b4', '請按任意鍵繼續');
+  return isShow('.q15.b4', '請按任意鍵繼續');
 }
 
 function input(content) {
