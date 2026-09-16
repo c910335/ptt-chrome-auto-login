@@ -1,7 +1,7 @@
 {
   "name": "PTT Auto Login",
   "description": "Automating the login process for PTT.",
-  "version": "1.4",
+  "version": "1.5",
   "manifest_version": 3,
   "permissions": ["storage"],
   "action": {
