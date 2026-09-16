@@ -16,6 +16,12 @@ $ git clone https://github.com/c910335/ptt-chrome-auto-login.git
 
 2. `Load unpacked` from [chrome://extensions](chrome://extensions)
 
+## Troubleshooting
+
+- **Third-party password managers (e.g. iCloud Passwords)**: Disable the extension temporarily or add password manually at [chrome://password-manager/passwords](chrome://password-manager/passwords).
+- **Accidentally clicked "Never" when saving password**: Remove `term.ptt.cc` from **Declined sites and apps** (Never saved) at [chrome://password-manager/settings](chrome://password-manager/settings).
+- **Managing saved credentials**: View, edit, or delete stored passwords anytime at [chrome://password-manager/passwords](chrome://password-manager/passwords).
+
 ## Contributing
 
 1. Fork it (<https://github.com/c910335/ptt-chrome-auto-login/fork>)
